@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
-const SingleTask = ({todo, handleComplete}) => {
+const Todo = ({todo, onComplete}) => {
+
+    const handleComplete =  useCallback(() => {
+        onComplete(todo.id);
+    }, [onComplete, todo.id]);
+
     return (
-        <li key={todo.id} className='task-card'>
+        <li className='task-card'>
             {
                 todo.state === 0 ?
                     <div className='status-badge pending'><span className='icon icon-pending'/>Pending</div> :
@@ -12,7 +17,7 @@ const SingleTask = ({todo, handleComplete}) => {
             <button
                 className='btn primary'
                 disabled={todo.state}
-                onClick={() => handleComplete(todo.id)}
+                onClick={handleComplete}
             >
                 Mark as done
             </button>
@@ -20,4 +25,4 @@ const SingleTask = ({todo, handleComplete}) => {
     );
 };
 
-export default SingleTask;
+export default Todo;
