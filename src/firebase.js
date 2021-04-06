@@ -11,15 +11,23 @@ firebase.initializeApp(config);
 const firestore = firebase.firestore();
 
 export function getUsers(cb) {
-  return firestore.collection("users").onSnapshot(cb);
+  return firestore
+      .collection("users")
+      .onSnapshot(cb);
 }
 
 export function getUser(documentId) {
-  return firestore.collection("users").doc(documentId).get();
+  return firestore
+      .collection("users")
+      .doc(documentId)
+      .get();
 }
 
 export function updateUser(documentId, data) {
-  return firestore.collection("users").doc(documentId).update(data);
+  return firestore
+      .collection("users")
+      .doc(documentId)
+      .update(data);
 }
 
 export function getUserTodos(documentId, cb) {

@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react';
+import React  from 'react';
 
 const Todo = ({todo, onComplete}) => {
 
-    const handleComplete =  useCallback(() => {
+
+    const handleComplete =  () => {
         onComplete(todo.id);
-    }, [onComplete, todo.id]);
+    };
 
     return (
         <li className='task-card'>

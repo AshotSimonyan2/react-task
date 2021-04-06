@@ -1,9 +1,9 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 
 const TableRow = ({user, onSelectedUser, selectedUser}) => {
-    const handleSelectedUser =  useCallback(() => {
+    const handleSelectedUser =  () => {
         onSelectedUser(user.id, user.name);
-    }, [onSelectedUser, user.id, user.name]);
+    };
 
     return (
         <tr  className={user.id === selectedUser?.id ? 'active' : ''} onClick={handleSelectedUser}>
